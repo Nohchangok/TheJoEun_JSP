@@ -1,0 +1,21 @@
+기본객체설명.txt
+기본 객체가 영향을 미치는 범위(scope)
+pageContext < request < session < application
+
+각 기본객체에 데이터를 넣는 법(속성)
+객체들은 공통으로 set, get의 메소드가 있다.
+setAttribute("키",값);
+getAttribute("키");
+
+pageContet 
+jsp페이지 내에서 공유할 값을 저장한다.
+
+
+request
+주로 jsp페이지 사이에 정보를 전달학 위해서 사용한다.
+
+session
+하나의 브라우저 영역에서 쓰이는데 주로 로그인 정보를 유지할 때 씀.
+
+application
+웹 어플리케이션의 영역에서 쓰고 웹의 설정정보를 담아서 씀.
