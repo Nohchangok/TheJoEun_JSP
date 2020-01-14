@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+  
+<%
+	//data.jspf 파일로 만듬 
+	//jspf파일은 플레그먼트를 표현해주기위함.
+	//실행이 되지 않음.
+	request.setCharacterEncoding("utf-8");
+	String name = request.getParameter("name");
+	int kor = Integer.parseInt(request.getParameter("kor"));
+	int eng = Integer.parseInt(request.getParameter("eng"));
+	int mat = Integer.parseInt(request.getParameter("mat"));
+	int soc = Integer.parseInt(request.getParameter("soc"));
+	int sci = Integer.parseInt(request.getParameter("sci"));
+	
+	int sum = kor+eng+mat+soc+sci;
+	int avg = (kor+eng+mat+soc+sci)/5;
+%>
