@@ -7,7 +7,7 @@
 <title>input.jsp</title>
 </head>
 <body>
-	<form action="save.jsp">
+	<form action="save.jsp" method="get">
 		<input type="number" name="num1" placeholder="숫자1"><br>
 		<input type="number" name="num2" placeholder="숫자2"><br>
 		<input type="number" name="num3" placeholder="숫자3"><br>
