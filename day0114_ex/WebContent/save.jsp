@@ -17,7 +17,6 @@
 	//int형은 write시 깨짐
 	//String은 안꺠짐.
 	//왜그런건지??
-	//
 	try(FileWriter fout = new FileWriter
 			("C:/Users/oo756/Documents/TheJoEun_JSP/day0114_ex/WebContent/number.txt")){
 		fout.write(num1);

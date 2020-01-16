@@ -1,0 +1,75 @@
+자바빈 규격
+1. 패키지화함
+2. 프로퍼티(멤버변수) private 여야한다.
+3. 기본생성자가 있어야 한다.
+4. getter, setter 가 있어야 한다. 프로퍼티의 첫 글자가 대문자
+   String name; ->>>> getName();, setName();
+5. 직렬화할 수 있어야 한다.
+
+class Car{
+   
+   private String name;
+   
+   public Car(){//요거가 있어야함.
+   }
+   
+   public Car(String name){
+      this.name = name;
+   }
+   
+   public String getName(){
+      return name;
+   }
+   
+   public void setName(String name){
+      this.name = name;
+   }
+   
+표현 언어(Expression Language)
+또다른 형태의 스크립트 언어.
+값을 표현하는데 편리한 언어.
+<%= %> 이런식으로 하던건 복잡하고 지저분하니까 ~~ 좀 간결하게 하려고 생긴놈.
+<% %> 표현된 애들중 약간의 기능은 어느정도 지원은 함.
+
+수치연산, 관계연산, 논리연산을 지원
+자바 클래스 메소드도 호출 가능.
+쿠기, 기본객체의 속성도 표현 가능.
+
+${내용}
+
+EL표현
+boolean : true, false
+정수 : 0~9 타입 long   	   ${0}, ${10}, ${-10}
+실수 : 실수 double ${0.05}
+문자열 : 타입 String ""사이에 글자료 표현 ${"내용"}
+
+EL의 기본 객체.
+pageContext : jsp의 pageContext와 같은 객체, scope=페이지
+requestScope : jsp의 request와 같은 객체
+sessionScope : jsp의 session과 같은 객체
+application : jsp의 application 과 같은 객체
+param : request의 파라미터의 내용을 담은 map형태의 객체	
+paramValues : 파라미터의 값들
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
