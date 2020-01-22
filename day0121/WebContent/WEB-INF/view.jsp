@@ -1,29 +1,7 @@
-<%@page import="day0120.MessageDto"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="day0120.MessageListView"%>
-<%@page import="day0120.MessageListService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%	
-	//현재 page정보
-	
-	String pageNumberStr = request.getParameter("page"); 
-	int pageNumber = 1;
-	if(pageNumberStr !=null){ 
-		pageNumber = Integer.parseInt(pageNumberStr);
-	}
-	
-	//서비스 객체 생성
-	MessageListService service = new MessageListService();
-	
-	//서비스 객체를 이용하여 현재페이지 관련 데이터를 받아옴.
-	MessageListView viewData = service.getMessageListView(pageNumber);
 
-%>
-
-<c:set var="viewData" value="<%=viewData %>"/>
 <!DOCTYPE html>
 <html>
 <head>
