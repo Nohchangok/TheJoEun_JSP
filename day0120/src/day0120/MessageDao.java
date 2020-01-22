@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,13 +68,13 @@ public class MessageDao {
 	
 	//update
 	public void update(Connection conn, MessageDto messageDto) throws SQLException {
-		String sql = "update guestbook set guest_name=?, message=?, wdata=?"
+		String sql = "update guestbook set guest_name=?, message=?, wdate=?"
 				+ "where message_id=?";
 		
 		try(PreparedStatement pst = conn.prepareStatement(sql)){
 			pst.setString(1, messageDto.getGuestName());
 			pst.setString(2, messageDto.getMessage());
-			pst.setTimestamp(3, Timestamp.valueOf(messageDto.getWdate()));
+			pst.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
 			pst.setInt(4, messageDto.getMessageId());
 			
 			pst.executeUpdate(); //()안에 sql을 넣으면 위에 pst로 세팅한 것이 초기화됨.

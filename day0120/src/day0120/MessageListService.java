@@ -25,7 +25,7 @@ public class MessageListService {
 			
 			//전체 메세지 개수.
 			int messageTotalCount = messageDao.selectCount(conn);
-			
+ 			
 			//메세지 리스트.
 			List<MessageDto> messageList = null;
 			int firstRow =0;

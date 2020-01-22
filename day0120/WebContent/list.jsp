@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%	
 	//현재 page정보
-	//page값은 어디서 얻은거지?????
+	
 	String pageNumberStr = request.getParameter("page"); 
 	int pageNumber = 1;
 	if(pageNumberStr !=null){
@@ -34,6 +34,7 @@
 </style>
 </head>
 <body>
+<a href="writeMessage.jsp">메세지 쓰기</a>
 <c:if test="${viewData.messageTotalCount == 0 }" >
 	등록된 메세지가 없습니다.
 </c:if>
@@ -45,6 +46,8 @@
 			작성일 : ${message.wdate }<br>
 			내용 : <br>
 			${message.message }
+			<a href="updateMessage.jsp?message_id=${message.messageId }">수정</a>
+			<a href="deleteMessage.jsp?message_id=${message.messageId }">삭제</a>
 		</div>
 	</c:forEach>
 	<hr>
