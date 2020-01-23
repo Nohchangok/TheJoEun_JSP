@@ -18,7 +18,7 @@ public class MessageDao {
 
 	public ArrayList<MessageDto> selectMegList(Connection conn) throws SQLException {
 		String sql = "select message_id, guest_name, password, message, wdate, udate "
-				+ "from guestbook_message";
+				+ "from guestbook_message order by wdate desc";
 		
 		try(PreparedStatement pst = conn.prepareStatement(sql)){
 			

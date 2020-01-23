@@ -25,7 +25,15 @@
 </style>
 </head>
 <body>
-<jsp:include page="writeMessage.jsp"></jsp:include>
+<form action="writeMessage.jsp" method="post">
+	<fieldset>
+		<legend>방명록쓰기</legend>
+		<input type="text" name="guestName" placeholder="이름">
+		<input type="text" name="password" placeholder="암호">
+		<input type="submit" value="메세지 남기기"><br>
+		<textarea rows="5" cols="50" name ="message" placeholder="내용"></textarea>
+	</fieldset>  
+</form>
 <c:set var="list" value="<%=list %>"/>
 <c:if test="${list.size() == 0 }" >
 	등록된 메세지가 없습니다.
@@ -37,7 +45,10 @@
 		수정일 : ${message.udate }<br>
 		작성자 : ${message.guestName }<br>
 		내용 : <br>
-		${message.message }<br>
+		 <c:choose>
+		 	<c:when test="${message.message =='' }">작성된 메세지가 없습니다.<br></c:when>
+		 	<c:otherwise>${message.message }<br></c:otherwise>
+		 </c:choose>
 		
 		<a href="confirmDeletion.jsp?message_id=${message.messageId }">삭제</a>
 		<a href="updateForm.jsp?message_id=${message.messageId }">수정</a>
