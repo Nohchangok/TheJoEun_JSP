@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button>get data!</button>
+<script type="text/javascript">
+	var btn = document.getElementsByTagName("button")[0];
+	
+	btn.onclick = function(){
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open("get","data1.json",true); 
+		
+		xhr.send();
+		
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				//json은 텍스트형태로 넘어오기 때문에
+				//문자열을 json으로 변경하는 작업을 해줘야한다.
+				var json = JSON.parse(xhr.responseText);
+				console.log(json);
+				
+				//테이블을 생성해서 데이터를 넣고 출력
+				var table="<table border='1'>";
+				for(var i = 0; i<json.length; i++){
+					table +="<tr>";
+					table +="<td>"+json[i].name+"</td>";
+					table +="<td>"+json[i].age+"</td>";
+					for(var j =0; j<json[i].shoes.length; j++){
+						table +="<td>"+json[i].shoes[j].brand+"</td>";
+						table +="<td>"+json[i].shoes[j].price+"</td>";
+					}
+					table +="</tr>"
+				}
+				table +="</table>"
+				document.body.innerHTML += table;
+				
+			}
+		};
+	};
+</script>
+
+</body>
+</html>

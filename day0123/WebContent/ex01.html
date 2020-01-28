@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex01.html</title>
+</head>
+<body>
+<button id="btn">가격화면 가져와!</button>
+<script type="text/javascript">
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		alert("하잉");
+		//자바스크립트를 이용한 ajax를 사용!
+		//1. XMLHttpRequest 객체생성
+		var xhr = new XMLHttpRequest();
+		
+		//2. open() 호출. //request준비
+		xhr.open("get", "data.html",true); //true는 비동기방식.
+		
+		//3. send() 호출. //request보냄.
+		xhr.send();
+
+		//4. 응답데이터를 처리 
+		xhr.onreadystatechange = function(){
+			
+			//응답상태가 완료되고 정상적이라면 실행하겠다.		
+			if(xhr.readyState == 4 && xhr.status == 200){
+				document.body.innerHTML += xhr.responseText; // responseText = 결과값의 데이터가 담기는 속성 
+			}
+			
+		}
+		
+		
+	}
+</script>
+</body>
+</html>

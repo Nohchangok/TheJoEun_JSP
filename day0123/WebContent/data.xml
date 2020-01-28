@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<item>
+		<name>우유</name>
+		<price>2000</price>
+	</item>
+	
+	<item>
+		<name>커피</name>
+		<price>1000</price>
+	</item>
+	
+	<item>
+		<name>주스</name>
+		<price>2500</price>
+	</item>
+	
+	<item>
+		<name>자몽</name>
+		<price>4500</price>
+	</item>
+	
+	<item>
+		<name>유자차</name>
+		<price>3000</price>
+	</item>
+</products>

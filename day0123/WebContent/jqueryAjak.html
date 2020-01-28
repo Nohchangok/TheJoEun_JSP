@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+   $(function(){
+      $("#search").click(function(){
+         var title = $("input[name=title]").val();
+         $.ajax({
+        	 url : "search", //요청할 주소
+        	 data : {"title":title}, //파라미터로 전달할 데이터
+        	 dataType : "json", //받을 데이터 형식
+        	 type : "post", //method요청 방식
+        	 success : function(result){ //성공했을시 result에 결과를 담아 실행
+        		 console.log(result);
+        	 },
+        	 error : function(e){//실패시 실행
+        		 alert("실패!");
+				
+			}
+         })
+      })
+   });
+
+</script>
+</head>
+<body>
+<button id="search">데이터 주삼!</button>
+<input type="text" name="title" placeholder="제목을 입력하세요">
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex01_ex.html</title>
+</head>
+<body>
+<button id ="btn">누구니?</button>
+<script type="text/javascript">
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open("get","data_ex.html", true);
+		xhr.send();
+		xhr.onreadystatechange = function(){
+			
+			if(xhr.readyState == 4 && xhr.status ==200){
+				document.body.innerHTML += xhr.responseText;
+			}
+		}
+	}
+</script>
+</body>
+</html>

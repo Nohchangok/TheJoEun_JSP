@@ -1,0 +1,5 @@
+[
+   {"name":"태현","age":24, "shoes":[{"brand":"nike","price":100},{"brand":"fila","price":200}]},
+   {"name":"태환","age":27, "shoes":[{"brand":"adidas","price":300},{"brand":"발렌시아","price":300}]},
+   {"name":"중영","age":29, "shoes":[{"brand":"adidas","price":10},{"brand":"gucci","price":2000}]}
+]

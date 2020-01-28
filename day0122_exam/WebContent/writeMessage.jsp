@@ -7,6 +7,7 @@
 	request.setCharacterEncoding("utf-8");
 	MessageDto messageDto = new MessageDto();
 	messageDto.setGuestName(request.getParameter("guestName"));
+	System.out.println("gestName :"+request.getParameter("guestName"));
 	messageDto.setPassword(request.getParameter("password"));
 	messageDto.setMessage(request.getParameter("message"));
 	messageDto.setWdate(LocalDateTime.now());

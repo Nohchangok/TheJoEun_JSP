@@ -13,6 +13,10 @@ public class MyConn {
 		String user ="root";
 		String password ="mysql";
 		Connection conn = DriverManager.getConnection(url, user, password);
+		String a = " a  b ";
+		a = a.replaceAll(" ","");
+		System.out.println("a :"+a);
 		return conn;
 	}
+	
 }

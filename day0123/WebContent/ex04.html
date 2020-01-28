@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button>get data!!!!</button><br>
+<script type="text/javascript">
+	var btn = document.getElementsByTagName("button")[0];
+	btn.onclick = function(){
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open("get", "data_ex.xml", true);
+		
+		xhr.send();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status ==200){
+				var xml = xhr.responseXML;
+				var name = xml.getElementsByTagName("name");
+				var age = xml.getElementsByTagName("age");
+				var score = xml.getElementsByTagName("score");
+				var kor = xml.getElementsByTagName("kor");
+				var eng = xml.getElementsByTagName("eng");
+				var math = xml.getElementsByTagName("math");
+				
+				var out = "";
+				for(let i =0; i< name.length; i++){
+					out += "이름 : " +name[i].innerHTML+"<br>";
+					out += "나이 : " +age[i].innerHTML+"<br>";
+					out += "<fieldset><legend>성적</legend>";
+					out += "국어 : "+kor[i].innerHTML+"<br>";
+					out += "영어 : "+eng[i].innerHTML+"<br>";
+					out += "수학 : "+math[i].innerHTML+"<br>";
+					out += "</fieldset><hr>"
+					
+				}
+				document.body.innerHTML += out;
+			}
+		}
+	}
+</script>
+</body>
+</html>

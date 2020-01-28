@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<people>
+	<Student>
+		<name>노창옥</name>
+		<age>27</age>
+		<score>
+			<kor>100</kor>
+			<eng>100</eng>
+			<math>99</math>
+		</score>	
+	</Student>
+	
+	<Student>
+		<name>이승준</name>
+		<age>30</age>
+		<score>
+			<kor>100</kor>
+			<eng>100</eng>
+			<math>100</math>
+		</score>	
+	</Student>
+	
+	<Student>
+		<name>김형주</name>
+		<age>27</age>
+		<score>
+			<kor>50</kor>
+			<eng>50</eng>
+			<math>50</math>
+		</score>	
+	</Student>
+	
+</people>

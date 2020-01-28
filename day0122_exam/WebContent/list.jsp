@@ -46,7 +46,7 @@
 		작성자 : ${message.guestName }<br>
 		내용 : <br>
 		 <c:choose>
-		 	<c:when test="${message.message =='' }">작성된 메세지가 없습니다.<br></c:when>
+		 	<c:when test="${message.message==''}">작성된 메세지가 없습니다.<br></c:when>
 		 	<c:otherwise>${message.message }<br></c:otherwise>
 		 </c:choose>
 		

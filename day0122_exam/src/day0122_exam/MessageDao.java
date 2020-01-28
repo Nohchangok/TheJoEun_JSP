@@ -16,7 +16,7 @@ public class MessageDao {
 		return instance;
 	}
 
-	public ArrayList<MessageDto> selectMegList(Connection conn) throws SQLException {
+	public ArrayList<MessageDto> selectMegList(Connection conn) {
 		String sql = "select message_id, guest_name, password, message, wdate, udate "
 				+ "from guestbook_message order by wdate desc";
 		
@@ -37,8 +37,13 @@ public class MessageDao {
 				}
 				return list;
 				
+			}catch(Exception e) {
+				System.out.println("result set error ! : " + e.toString());
 			}
+		}catch(Exception e) {
+			System.out.println("pst error : " + e.toString());
 		}
+		return null;
 	}
 	
 	public MessageDto selectMsg(Connection conn, int message_id) throws SQLException {
@@ -65,11 +70,12 @@ public class MessageDao {
 		}
 	}
 	
-	public void insertMsg(Connection conn, MessageDto messageDto) throws SQLException {
+	public void insertMsg(Connection conn, MessageDto messageDto) {
 		String sql = "insert into guestbook_message(guest_name, password, message, wdate, udate)"
 				+ "value(?,?,?,?,?)";
 		
 		try(PreparedStatement pst = conn.prepareStatement(sql)){
+			
 			pst.setString(1, messageDto.getGuestName());
 			pst.setString(2, messageDto.getPassword());
 			pst.setString(3, messageDto.getMessage());
@@ -77,7 +83,10 @@ public class MessageDao {
 			pst.setTimestamp(5, Timestamp.valueOf(messageDto.getUdate()));
 			
 			pst.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("EXCEPTION ! : " + e.toString());
 		}
+		
 		
 	}
 	

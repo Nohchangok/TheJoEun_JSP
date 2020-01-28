@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex03.html</title>
+</head>
+<body>
+	<button>get data!!</button>
+</body>
+<script type="text/javascript">
+	var btn = document.getElementsByTagName("button")[0];
+	btn.onclick = function(){
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open("get","data.xml",true);
+		
+		xhr.send();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status ==200){
+				var xml = xhr.responseXML; //객체가 있는 형태로 가져올 수 있다.
+				var names = xml.getElementsByTagName("name");
+				var prices = xml.getElementsByTagName("price");
+				
+				var out = "<dl>";
+				for(let i = 0; i < names.length; i++){
+					out += "<dt>"+names[i].innerHTML+"<dt>";
+					out +="<dd>"+prices[i].innerHTML+"</dd>";
+				}
+				out += "</dl>";
+				document.body.innerHTML += out;
+			}
+		}
+		
+	}
+</script>
+</html>
